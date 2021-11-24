@@ -1,0 +1,44 @@
+//Importerar fil där vi samlar våra variabler
+@import "partials/index";
+//Importerar fil där vi samlar våra mixins
+@import "partials/mixins";
+body {
+    background:$favorite-color;
+    // @media screen and (min-width:$tablet){
+    //     background:red;
+    // } 
+    // Istället för ovansetående, kan vi använda vår mixin for-tablet vi definierat i mixin-filen.
+    @include for-tablet {
+        background:red;
+    }
+    .content {
+        h2 {
+            @include text-styles(24px,underline);
+            color:darkred;
+            @include for-tablet {
+                color:greenyellow;
+            }
+        }
+        .sub-content {
+            h2 {
+                color:navy;
+            }
+            p {
+                @include text-styles(16px,underline);
+            }
+        }
+    }
+
+    h1,h2 {
+        color:$favorite-color
+    }
+}
+// Såhär hade vi gjort i vanlig CSS
+// @media (min-width:400px) {
+//     body {
+//         background:green;
+//     }
+//     .content {
+//         background:orangered;
+//     }
+// }

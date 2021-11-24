@@ -1,0 +1,11 @@
+@mixin text-styles ($size,$decoration){
+    font-family:Verdana, sans-serif;
+    font-size: $size;
+    text-decoration: $decoration;
+}
+
+@mixin for-tablet {
+    @media (min-width:480px) and (max-width:768px) {
+        @content;
+    }
+}
